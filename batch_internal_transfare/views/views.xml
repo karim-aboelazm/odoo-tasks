@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='batch_internal_transfare_action' model='ir.actions.act_window'>
+        <field name="name">Batch Internal Transfare</field>
+        <field name="res_model">account.payment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- <menuitem name="My Library" id="library_base_menu" /> -->
+    <menuitem name="B I T" id="menu_account_supplier" parent="account.menu_finance_payables" action="batch_internal_transfare_action"/>
+
+    <!-- Form View -->
+    <record id="batch_internal_transfare_view_form" model="ir.ui.view">
+        <field name="name">Batch Internal Transfer Form</field>
+        <field name="model">account.payment</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="make_waiting_approve" string="Send To Auditor" type="object"/>
+                    <button name="make_approved"  string="Approve" type="object"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <!-- <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="author_ids" widget="many2many_tags"/>
+                    </group>
+                    <group>
+                        <field name="date_release"/>
+                    </group>
+                </group> -->
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree(list) View -->
+    <!-- <record id="batch_internal_transfare_view_tree" model="ir.ui.view">
+        <field name="name">Library Book List</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date_release"/>
+            </tree>
+        </field>
+    </record> -->
+
+    <!-- Search View -->
+    <!-- <record id="batch_internal_transfare_view_search" model="ir.ui.view">
+        <field name="name">Library Book Search</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="author_ids"/>
+                <filter string="Without Authors" name="without_author" domain="[('author_ids','=',False)]"/>
+            </search>
+        </field>
+    </record> -->
+
+</odoo>

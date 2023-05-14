@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+        <record id="view_attendance_form" model="ir.ui.view">
+        <!-- Define the view for the Attendance model -->
+            <field name="name">attendance_form</field>
+            <field name="model">attendance.attendance</field>
+            <field name="arch" type="xml">
+                <form string="Attendance">
+                    <!-- Define the fields to display on the form -->
+                     <!-- Define the buttons for state transitions -->
+                    <header>
+                        <button name="make_waiting_approve" string="Waiting Approved" type="object"/>
+                        <button name="make_approved"  string="Confirm" type="object"/>
+                        <button name="make_rejected"  string="Rejected" type="object"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="sequence"/>
+                            <field name="current_date"/>
+                            <field name="emp_name"/>
+                            <field name="attend_type"/>
+                            <field name="attend_reason"/>
+                            <field name="check_in"/>
+                            <field name="check_out"/>
+                            <field name="action_to_do"/>
+                            <!-- <field name="attendance_action"/> -->
+                        </group>
+                    </sheet>
+                    
+                   
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_attendance_tree" model="ir.ui.view">
+        <!-- Define the view for the Attendance model -->
+            <field name="name">attendance_tree</field>
+            <field name="model">attendance.attendance</field>
+            <field name="arch" type="xml">
+                <tree string="Attendance">
+                    <field name="sequence" string="Name"/>
+                    <field name="emp_name" string="Employee"/>
+                    <field name="current_date" string="Date"/>
+                    <field name="attend_type" string="Type"/>
+                    <field name="attend_reason" string="Reasons"/>
+                    <field name="check_in" string="Updated Value Checkin"/>
+                    <field name="check_out" string="Updated Value Checkout"/>
+                    <field name="state" string="State"/>
+                </tree>
+            </field>
+        </record>
+   
+  <record id="action_employee_attendance" model="ir.actions.act_window">
+    <field name="name">Employees Attendance</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">attendance.attendance</field>
+    <field name="view_mode">tree,form,graph</field>
+    <field name="context">{}</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">Add The First Attendance Request !</p>
+    </field>
+  </record>
+
+    <menuitem name="Employee Attendance" sequence="0" parent="menu_attendance_root" action="action_employee_attendance" id="menu_employee_attendance_master"/>  
+ </data>
+</odoo>

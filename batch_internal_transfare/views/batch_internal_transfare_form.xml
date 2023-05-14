@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+        <record id="view_batch_internal_transfare_form" model="ir.ui.view">
+            <field name="name">Batch Internal Transfer Form</field>
+            <field name="model">batch.internal.transfare</field>
+            <field name="arch" type="xml">
+                <form string="Batch Internal Transfare">
+                    <header>
+                        <button name="make_waiting_approve" string="Send To Auditor" type="object"/>
+                        <button name="make_approved"  string="Approve" type="object"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="transfer_from" string="Transfare From"/>
+                            <field name="transfer_to" string="Transfare To"/>
+                            <field name="current_date" string="Date"/>
+                            <!-- <field name="amount" string="Amount"/> -->
+                            <field name="internal_transfer" string="Internal Transfare" invisible="1"/>
+                            <!-- <field name="state"/> -->
+                        </group>
+                        <notebook>
+                            <page string="Payment Lines">
+                                <field name="payment_lines" mode="tree">
+                                    <tree editable="bottom">
+                                        <field name="date"/>
+                                        <!-- <field name="amount"/> -->
+                                        <!-- Add more fields as needed -->
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

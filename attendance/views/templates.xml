@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <!-- Define the menu item for the Attendance model -->
+        <record id="menu_attendance" model="ir.ui.menu">
+            <field name="name">Attendance</field>
+            <field name="sequence" eval="10"/>
+            <field name="action" ref="action_attendance"/>
+            <field name="parent_id" ref="menu_root"/>
+        </record>
+
+        <!-- Define the action for the Attendance model -->
+        <record id="action_attendance" model="ir.actions.act_window">
+            <field name="name">Attendance</field>
+            <field name="res_model">attendance.attendance</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

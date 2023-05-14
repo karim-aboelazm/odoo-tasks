@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+        <record id="action_batch_internal_transfare" model="ir.actions.act_window">
+            <field name="name">Batch Internal Transfare</field>
+            <field name="res_model">batch.internal.transfare</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="BIT" sequence="0" parent="account.menu_finance_payables" action="action_batch_internal_transfare" id="menu_batch_internal_transfare"/>   
+    </data>
+</odoo>

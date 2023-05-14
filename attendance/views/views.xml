@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <menuitem  name="Attendance"  sequence="0" id="menu_attendance_root"/>
+</odoo>
