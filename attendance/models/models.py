@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+from odoo import models, fields, api,_
 
 class Attendance(models.Model):
     _name = 'attendance.attendance'
 
-    sequence = fields.Char("Sequence", max_length=50)
-    emp_name = fields.Char("Employee", max_length=50)
+    sequence = fields.Char(string='Sequence', required=True,readonly=True, default=lambda self: _('New'))
+    emp_name = fields.Many2one("hr.employee")
     current_date = fields.Date(string='Date', default=fields.Date.context_today, required=True)
     attend_type = fields.Selection(
         selection=[('check-in', 'Check-In'), ('check-out', 'Check-Out'), ('both', 'Both')],
@@ -20,15 +20,18 @@ class Attendance(models.Model):
     )
 
     attendance_action = fields.Many2one(
-        model_name='attendance.attendance',
+        'hr.attendance',
         string='Attendance',
-        domain="[('emp_name', '=', emp_name)]",
-        attrs={'invisible': [('action_to_do', '=', 'new_record')]}
+        # attrs={'invisible': [('action_to_do', '=', 'new_record')]}
     )
     check_in = fields.Datetime(string='Check-In')
 
     check_out = fields.Datetime(string='Check-Out')
 
+    @api.onchange("emp_name")
+    def _onchange_field(self):
+        return {"domain":{'attendance_action':[("employee_id",'in',self.emp_name.ids)]}}
+    
     @api.model
     def is_allowed_transition(self, old_state, new_state):
         allowed = [('draft'    , 'waiting approve'),
@@ -55,3 +58,10 @@ class Attendance(models.Model):
     def make_rejected(self):
         self.change_state('draft')
     
+    @api.model
+    def create(self, vals):
+        if vals.get('sequence', _('New')) == _('New'):
+            vals['sequence'] = self.env['ir.sequence'].next_by_code(
+                'attendance.attendance') or _('New')
+        res = super(Attendance, self).create(vals)
+        return res

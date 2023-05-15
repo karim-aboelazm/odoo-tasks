@@ -16,7 +16,9 @@
                     </header>
                     <sheet>
                         <group>
-                            <field name="sequence"/>
+                            
+                            
+                            <h1><field name="sequence"/></h1>
                             <field name="current_date"/>
                             <field name="emp_name"/>
                             <field name="attend_type"/>
@@ -24,7 +26,7 @@
                             <field name="check_in"/>
                             <field name="check_out"/>
                             <field name="action_to_do"/>
-                            <!-- <field name="attendance_action"/> -->
+                            <field name="attendance_action"  attrs="{'invisible': [('action_to_do', '!=', 'modification')]}"/>
                         </group>
                     </sheet>
                     
@@ -32,7 +34,13 @@
                 </form>
             </field>
         </record>
-
+        <record id="seq_hospital_patient" model="ir.sequence">
+            <field name="name">Attendance Sequence</field>
+            <field name="code">attendance.attendance</field>
+            <field name="prefix">REQ</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
 
         <record id="view_attendance_tree" model="ir.ui.view">
         <!-- Define the view for the Attendance model -->
