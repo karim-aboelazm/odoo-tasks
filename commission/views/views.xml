@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <record id="account_journal_view_inherit" model="ir.ui.view">
+            <field name="name">account.journal.view.inherit</field>
+            <field name="model">account.journal</field> 
+            <field name="inherit_id" ref="account.view_account_journal_form" />
+            <field name="arch" type="xml">
+                <field name="account_control_ids" position="after">
+                    <field name="has_commission" attrs="{'invisible': [('type', '!=', 'bank')]}"/>
+                    <field name="bank_free_accounts" attrs="{'invisible': [('has_commission', '!=', True)]}"/>
+                    <field name="journal" attrs="{'invisible': [('has_commission', '!=', True)]}"/>
+                    <!-- <field name="restrict_mode_hash_table"/> -->
+                </field>
+                </field>
+        </record>
+    </data>
+</odoo>
