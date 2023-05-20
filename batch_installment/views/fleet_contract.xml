@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+
+     <record id="view_vehicle_contract_line_form" model="ir.ui.view">
+            <field name="name">vehicle.line.form</field>
+            <field name="model">vehicle.line</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                 <field name="line_number"/>
+                                <field name="due_date"/>
+                                <field name="asset"/>
+                                <field name="interest"/>
+                                <field name="insurance"/>
+                                <field name="monthly_amount"/>
+                                <field name="paid_amount"/>
+                                <field name="remaining_amount"/>
+                                <field name="status"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Update the existing view -->
+        <record id="view_custom_contract_form" model="ir.ui.view">
+            <field name="name">custom.contract.form</field>
+            <field name="model">fleet.vehicle.log.contract</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_log_contract_view_form"/>
+            <field name="arch" type="xml">
+                <!-- Hide the ins_ref field -->
+                <xpath expr="//field[@name='ins_ref']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <!-- Add Many2One field for purchase orders -->
+                <field name="ins_ref" position="after"> 
+                    <field name="purchase_order_id"/>
+                    <field name="pay_ownership_value"/>
+                </field>
+                <sheet position="inside">
+                    <notebook>
+                        <page name="contract_lines" string="Vehicle Contract Lines">
+                            <field name="vehicle_lines">
+                                <tree>
+                                    <field name="line_number"/>
+                                    <field name="due_date"/>
+                                    <field name="asset"/>
+                                    <field name="interest"/>
+                                    <field name="insurance"/>
+                                    <field name="monthly_amount"/>
+                                    <field name="paid_amount"/>
+                                    <field name="remaining_amount"/>
+                                    <field name="status"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </field>
+        </record>
+
+       
+    </data>
+</odoo>

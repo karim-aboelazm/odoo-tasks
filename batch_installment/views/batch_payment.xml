@@ -1,0 +1,101 @@
+<odoo>
+    <data>
+
+        <!-- Window Action -->
+        <record id="batch_payment_action" model="ir.actions.act_window">
+            <field name="name">Installemt Batch Payment</field>
+            <field name="res_model">batch.payment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new batch payment.
+                </p>
+            </field>
+        </record>
+
+        <!-- Form view batch installment -->
+        <record id="view_batch_payment_form" model="ir.ui.view">
+            <field name="name">Batch Payment Form</field>
+            <field name="model">batch.payment</field>
+            <field name="arch" type="xml">
+                 <form string="Batch Payment">
+                    <header>    
+                        <button name="make_confirmed" string="Confirm" type="object"  attrs="{'invisible': [('state', '=', 'generated')]}"/>
+                        <button name="generate"  string="Generate" type="object" attrs="{'invisible': [('state', '=', 'confirmed')]}"/>
+                        <button name="pay"  string="Pay" type="object" attrs="{'invisible': [('state', '!=', 'confirmed')]}" confirm="Are You Sure To Pay This Amount !!"/>
+                        <button name="payment"  string="Payment" type="object" attrs="{'invisible': [('state', '!=', 'confirmed')]}"/>
+                        <button name="make_closed"  string="Close" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,closed,paid"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <h1><field name="sequence" readonly="1"/></h1>
+                                <field name="vendor"/>
+                                <field name="purchase_orders" widget="many2many_tags"/>
+                                <field name="contracts" widget="many2many_tags"/>
+                                <field name="pay_ownership_value"/>
+                            </group>
+                        </group>
+                        <div class="oe_title">
+                            <label for="date_from" class="oe_edit_only" style="margin-top:20px;font-size:15px;font-weight:bolder;" />
+                            <span>
+                                <field name="date_from" class="oe_inline"/>
+                                <span class="oe_form_label" style="margin-left:30px;margin-right:30px;font-size:15px;font-weight:bolder;">To</span>
+                                <field name="date_to" class="oe_inline"/>
+                            </span>
+                        </div>
+                        <notebook>
+                        <page name="contract_lines" string="Vehicle Contract Lines">
+                            <field name="vehicle_lines">
+                                <tree>
+                                    <field name="line_number"/>
+                                    <field name="due_date"/>
+                                    <field name="asset"/>
+                                    <field name="interest"/>
+                                    <field name="insurance"/>
+                                    <field name="monthly_amount"/>
+                                    <field name="paid_amount"/>
+                                    <field name="remaining_amount"/>
+                                    <field name="status"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group>
+                        <group>
+                            <field name="sum_monthly_amount"/>
+                        </group>
+                    </group>
+                    </sheet>
+                </form>
+                
+            </field>
+        </record>
+
+        <!-- sequence auto create -->
+         <record id="seq_batch_payment" model="ir.sequence">
+            <field name="name">Batch Payment Sequence</field>
+            <field name="code">batch.payment</field>
+            <field name="prefix">BATCH-</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <!-- Tree View  batch installment-->
+        <record id="view_batch_payment_tree" model="ir.ui.view">
+            <field name="name">batch.payment.tree</field>
+            <field name="model">batch.payment</field>
+            <field name="arch" type="xml">
+                <tree string="Batch Payments">
+                    <field name="sequence"/>
+                    <field name="vendor"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record> 
+ 
+    </data>
+</odoo>

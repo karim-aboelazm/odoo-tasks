@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem name="installemt batch payment" id="menu_account_supplier" parent="account.menu_finance_payables" action="batch_payment_action"/>
+</odoo>
