@@ -96,6 +96,33 @@
                 </tree>
             </field>
         </record> 
+        
+        <!-- Search View  batch installment-->
+        <record id="view_batch_payment_search" model="ir.ui.view">
+            <field name="name">batch.payment.search</field>
+            <field name="model">batch.payment</field>
+            <field name="arch" type="xml">
+                <search string="Batch Payments Search">
+                    <field name="sequence" filter_domain="['|','|',('sequence','ilike', self),('vendor','ilike', self),('state','ilike', self)]"/>
+                    <field name="vendor"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="state"/>
+                    <filter name="state" string="State is Paid" domain="[('state', '=', 'paid')]"/>
+                    <separator/>
+                    <filter name="state" string="State is Confirmed" domain="[('state', '=', 'confirmed')]"/>
+                    <separator/>
+                    <filter name="state" string="State is Draft" domain="[('state', '=', 'draft')]"/>
+                    <separator/>
+                    <filter name="state" string="State is Closed" domain="[('state', '=', 'closed')]"/>
+                    <group expand="0" string="Group By">
+                        <filter string='State' name='group_by_state' context="{'group_by':'state'}"/>                     
+                        <separator/>
+                        <filter string='Vendors' name='group_by_vendors' context="{'group_by':'vendor'}"/>                     
+                    </group>
+                </search>
+            </field>
+        </record> 
  
     </data>
 </odoo>

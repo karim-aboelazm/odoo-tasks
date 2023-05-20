@@ -93,13 +93,7 @@ class BatchPayment(models.Model):
                     line.write({
                         'remaining_amount': remain_after_pay,
                     })  
-                    # raise UserError("Remain_After_Pay >= 0")
                 else:
-                    # line.write({
-                    #     'paid_amount': line.remaining_amount,
-                    #     'remaining_amount': remain_after_pay,
-                    #     'status': 'partialy_paid',
-                    # }) 
                     raise UserError("Remain_After_Pay < 0")
                 
                 rec.sum_monthly_amount = remain_after_pay
