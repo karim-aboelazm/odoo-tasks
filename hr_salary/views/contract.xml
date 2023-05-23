@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <data>
+    <!-- Inherit Form view -->
+    <record id="hr_salary_allowance_form" model="ir.ui.view">
+      <field name="name">hr_salary_allowance.form</field>
+      <field name="model">hr.contract</field>
+      <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+      <field name="arch" type="xml">
+       <xpath expr="//page[@name='information']" position="inside">
+         <group>
+             <field name="total_gross_salary" string="Gross Salary"/>
+            <field name="total_net_salary" string="Total Salary"/>
+         </group>
+        </xpath>
+        <xpath expr="//page[@name='information']" position="after">
+          <page string="Allowance">
+            <field name="allowance"/>
+          </page>
+          <page string="Deduction">
+            <field name="deduction"/>
+          </page>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

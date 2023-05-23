@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="allowance_view_form" model="ir.ui.view">
+            <field name="name">allowance.form</field>
+            <field name="model">hr_salary.allowance</field>
+            <field name="arch" type="xml">
+                <form string="Allowance">
+                    <sheet>
+                        <group class="col-4">
+                            <field name="amount"/>
+                            <field name="allow_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="allowance_view_tree" model="ir.ui.view">
+            <field name="name">allowance.tree</field>
+            <field name="model">hr_salary.allowance</field>
+            <field name="arch" type="xml">
+                <tree string="Allowance">
+                    <field name="amount"/>
+                    <field name="allow_id"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

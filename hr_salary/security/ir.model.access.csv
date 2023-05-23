@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_1,allowance,model_hr_salary_allowance,base.group_user,1,1,1,1
+access_2,deduction,model_hr_salary_deduction,base.group_user,1,1,1,1
