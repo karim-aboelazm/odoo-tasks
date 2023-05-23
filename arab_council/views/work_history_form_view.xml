@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="work_history_view_form" model="ir.ui.view">
+            <field name="name">arab_council.work_history.form</field>
+            <field name="model">arab_council.work_history</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet string="arab_council.work_history">
+                        <group col="4">
+                            <field name="work_field" string="Work Field"/>
+                            <field name="year" string="Year" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

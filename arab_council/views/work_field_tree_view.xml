@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="work_field_view_tree" model="ir.ui.view">
+            <field name="name">arab_council.work_field.tree</field>
+            <field name="model">arab_council.work_field</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" string="Work Field Name"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

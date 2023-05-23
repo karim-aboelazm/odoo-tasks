@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="skills_view_tree" model="ir.ui.view">
+            <field name="name">arab_council.skills.tree</field>
+            <field name="model">arab_council.skills</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="skills" colspan="4"/>
+                    <field name="cv"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

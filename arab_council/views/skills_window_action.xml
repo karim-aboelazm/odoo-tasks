@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_skills" model="ir.actions.act_window">
+            <field name="name">Skills</field>
+            <field name="res_model">arab_council.skills</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+       
+    </data>
+</odoo>

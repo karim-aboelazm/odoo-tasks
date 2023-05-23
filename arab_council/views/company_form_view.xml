@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="company_view_form" model="ir.ui.view">
+            <field name="name">arab_council.company.form</field>
+            <field name="model">arab_council.company</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet string="arab_council.company">
+                        <group col="4">
+                            <field name="name" />
+                            <field name="goals" />
+                            <field name="launching_date" />
+                            <field name="contact" can_create="true" can_write="true" />
+                            <field name="email" />
+                            <field name="website" />
+                            <field name="country_id" can_create="true" can_write="true" />
+                            <field name="state_id" can_create="true" can_write="true" />
+                            <field name="city" />
+                            <field name="zip_code" />
+                            <field name="street" />
+                            <field name="review_rating" widget="priority"/>  
+                        </group>
+                        <notebook>
+                                <page id="company_form_page_1" string="Work Fields">
+                                    <group>
+                                        <field name="work_field" widget="many2many_tags" />
+                                    </group>
+                                </page>
+                                <page id="company_form_page_2" string="Woking History">
+                                    <group>
+                                        <field name="work_history"/>
+                                    </group>
+                                </page>
+                                <page id="company_form_page_3" string="More Details">
+                                    <group>
+                                        <field name="create_uid"/>
+                                        <field name="create_date"/>
+                                    </group>
+                                </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

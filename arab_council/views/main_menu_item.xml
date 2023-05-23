@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_experts" name="Experts" action="action_experts"/>
+
+        <menuitem id="menu_skills" name="Configuration" parent="menu_experts"/>
+
+        <menuitem id="sub_menu_skills" name="Skills" action="action_skills" parent="menu_skills"/>
+
+        <menuitem id="menu_company" name="Company" action="action_company"/>
+        
+        <menuitem id="menu_company_config" name="Configuration" parent="menu_company"/>
+        
+        <menuitem id="sub_menu_work_field" name="Work Field" action="action_work_field" parent="menu_company_config"/>
+        
+        <menuitem id="sub_menu_work_history" name="Work History" action="action_work_history" parent="menu_company_config"/>
+       
+        <menuitem id="sub_menu_company_type" name="Company Type" action="action_company_type" parent="menu_company_config"/>
+    </data>
+</odoo>

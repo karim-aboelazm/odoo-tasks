@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="company_view_tree" model="ir.ui.view">
+            <field name="name">arab_council.company.tree</field>
+            <field name="model">arab_council.company</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="goals" />
+                    <field name="launching_date" />
+                    <field name="contact" can_create="true" can_write="true" />
+                    <field name="email" />
+                    <field name="website" />
+                    <field name="country_id" can_create="true" can_write="true" />
+                    <field name="state_id" can_create="true" can_write="true" />
+                    <field name="city" />
+                    <field name="zip_code" />
+                    <field name="street" />
+                    <field name="review_rating" widget="priority"/> 
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

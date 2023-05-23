@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="company_type_view_form" model="ir.ui.view">
+            <field name="name">arab_council.company_type.form</field>
+            <field name="model">arab_council.company_type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet string="arab_council.company_type">
+                            <field name="name" string="Company Type"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+e_id,expert_name,model_arab_council_expert,base.group_user,1,1,1,1
+s_id,skill_name,model_arab_council_skills,base.group_user,1,1,1,1
+c_id,company_name,model_arab_council_company,base.group_user,1,1,1,1
+ct_id,companytype_name,model_arab_council_company_type,base.group_user,1,1,1,1
+wf_id,workfield_name,model_arab_council_work_field,base.group_user,1,1,1,1
+wh_id,workhistory_name,model_arab_council_work_history,base.group_user,1,1,1,1
