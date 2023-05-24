@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_1,name_1,model_add_chatter_hr_employee_document,base.group_user,1,1,1,1

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="employee_document_view_tree" model="ir.ui.view">
+        <field name="name">employee document view tree</field>
+        <field name="model">add_chatter.hr.employee.document</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="document"/>
+                <field name="document_number"/>
+                <field name="issue_date"/>
+                <field name="expire_date"/>
+                <field name="attachment"/>
+                <field name="related_users"/>
+            </tree>
+        </field>
+        </record>
+    </data>
+</odoo>

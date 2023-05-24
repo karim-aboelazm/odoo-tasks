@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <menuitem id="menu_employee_document" name="Document" action="action_employee_document" parent="hr.menu_hr_root"/>
+  </data>
+</odoo>
