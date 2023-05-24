@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_edit_journal_edit_journal,edit_journal.edit_journal,model_edit_journal_edit_journal,base.group_user,1,1,1,1

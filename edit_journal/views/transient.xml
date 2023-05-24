@@ -1,0 +1,14 @@
+<data>
+    <record id="view_account_payment_register_form_extend" model="ir.ui.view">
+        <field name="name">account.payment.register.form.extend</field>
+        <field name="model">account.payment.register</field>
+        <field name="inherit_id" ref="account.view_account_payment_register_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_bank_id" position="after">
+                <field name="pocket_id" invisible="1"/>
+                <field name="new_date" attrs="{'invisible' : [('pocket_id','=',False)],'readonly':[('id','>',0)]}"
+                required="1"/>
+            </field>
+        </field>
+    </record>
+</data>
