@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- Inherit Form view -->
+        <record id="check_list_employee_form" model="ir.ui.view">
+            <field name="name">check list employee form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_ids']" position="after">
+                <group>
+                    <p style="margin:10px 0;">
+                        <field name="entry_progress" widget="percentpie"/>
+                    </p>
+                </group>
+            </xpath>
+               <xpath expr="//page[@name='hr_settings']" position="after">
+                    <page string="Check List">
+                        <group>
+                            <field name="check_list" widget="many2many_checkboxes"/>
+                        </group>
+                    </page>
+               </xpath>
+            </field>
+        </record>  
+    </data>
+</odoo>

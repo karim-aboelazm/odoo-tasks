@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="action_check_list" model="ir.actions.act_window">
+      <field name="name">Entery CheckList</field>
+      <field name="res_model">check_list.employee.check.list</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <menuitem id="menu_check_list" name="Entry CheckList" action="action_check_list" parent="hr.menu_human_resources_configuration"/>
+  </data>
+</odoo>
