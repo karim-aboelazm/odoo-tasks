@@ -1,0 +1,143 @@
+<data>
+    <template id="purchase_order_template_edited">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <page class="page">   
+                        <h3 class="text-center">
+                            أمر الشراء
+                        </h3>
+                        <h3 class="text-center mb-5">
+                            Purchase Order
+                        </h3>
+                        <table style="border-collapse: collapse;" class="col-12 text-center">
+                            <tr>
+                                <td style="border: none; padding: 5px;text-align: right;">
+                                    <span t-field="o.date_approve"/>
+                                </td>
+                                <td style="border: none; padding: 5px;text-align: right;">: تاريخ الشراء</td>
+
+                                <td style="border: none; padding: 5px;text-align: right;">
+                                    <span t-field="o.partner_id"/>
+                                </td>
+                                <td style="border: none; padding: 5px;text-align: right;">: الي السادة</td>
+
+
+                            </tr>
+                            <tr>
+                                <td style="border: none; padding: 5px;text-align: right;">
+                                    <span t-field="o.name"/>
+                                </td>
+                                <td style="border: none; padding: 5px;text-align: right;">: رقم الشراء</td>
+                                <td style="border: none; padding: 5px;text-align: right;">
+                                    <span t-field="o.partner_id.city"/>
+                                </td>
+                                <td style="border: none; padding: 5px;text-align: right;">: العنوان</td>
+                            </tr>
+                        </table>
+                        <p style="margin:20px 0;text-align:right;">
+                           المقدم من قبلكم بتاريخ  
+                           (<span t-field="o.date_approve"/>) 
+                           فأننا نعمدكم عليه حسب المطلوب أدناه  
+                           (<span t-field="o.name"/>) 
+                           بناء علي عرض سعر رقم
+                        </p>
+                        <table class="table table-bordered" style="border:1px solid #000;">
+                            <thead style="border:1px solid #000;">
+                                <tr class="table-light" style="border:1px solid #000;">
+                                    <th scope="col" style="font-size:10px !important;text-align:center;">اجمالي المبلغ شامل الضريبة</th>
+                                    <th scope="col" style="font-size:10px !important;text-align:center;">مبلغ الضريبة</th>
+                                    <th scope="col" style="font-size:10px !important;text-align:center;">المبلغ قبل الضريبة</th>
+                                    <th scope="col" style="font-size:10px !important;text-align:center;">سعر الوحدة</th>
+                                    <th scope="col" style="font-size:10px !important;text-align:center;">وحدة القياس</th>
+                                    <th scope="col" style="font-size:10px !important;text-align:center;">الكمية</th>
+                                    <th scope="col" style="font-size:10px !important;text-align:center;">الوصف</th>
+                                    <th scope="col">م</th>
+                                </tr>
+                            </thead>
+                            <tbody style="border:1px solid #000;">
+                                <t t-set="total_sum" t-value="0.0"/>
+                                 <tr t-foreach="o.order_line" t-as="line">
+                                    <td><span t-esc="line.price_subtotal + line.price_tax"/>
+                                        <t t-set="total_sum" t-value="total_sum + line.price_subtotal + line.price_tax"/>
+                                    </td>
+                                    <td><span t-field="line.price_tax"/></td>
+                                    <td><span t-field="line.price_subtotal"/></td>
+                                    <td><span t-field="line.price_unit"/></td>
+                                    <td><span t-field="line.product_uom"/></td>
+                                    <td><span t-field="line.product_qty"/></td>
+                                    <td><span t-field="line.name"/></td>
+                                    <td><span t-esc="line_index + 1" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align:center"><span t-esc="round(total_sum,2)"/> <span t-field="o.currency_id"/></td>
+                                    <td colspan="6" style="text-align:center">اجمالي المبلغ شامل الضريبة و القيمة المضافة </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="margin:20px 0;text-align:right;">
+                            اجمالي مبلغ التعميد شامل الضريبة القيمة المضافة فقط <span t-esc="o.get_arabic_text(round(total_sum,2))" />
+                        </p>
+                        <p style="margin:20px 0;text-align:right;">
+                          <strong>
+                          -:معلومات اضافية لأمر الشراء
+                          </strong>
+                        </p>
+                        <table class="col-6 text-right" style="float:right;border:none !important;">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                    <span t-field="o.currency_id"/>
+                                    <strong>
+                                    : عملة امر الشراء 
+                                    </strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <span t-field="o.payment_term_id"/>
+                                    <strong>
+                                    : شروط الدفع 
+                                    </strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <span t-field="o.date_planned"/>
+                                    <strong>
+                                    : تاريخ التوريد 
+                                    </strong>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="margin-top:50px;text-align:right;">
+                          <strong>
+                          -: الشروط و الاحكام
+                          </strong>
+                        </p>
+                        <table style="float:right !important;border:none !important;">
+                            <tbody>
+                                <tr style="text-align:right !important;">
+                                    <span t-field="o.notes" style="text-align:right !important;" class="text-muted"/>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </page>
+
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_purchase_order_report_edited" model="ir.actions.report">
+        <field name="name">Purchase Order (Ar)</field>
+        <field name="model">purchase.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">purchase_rebort.purchase_order_template_edited</field>
+        <field name="report_file">purchase_rebort.purchase_order_template_edited</field>
+        <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</data>
