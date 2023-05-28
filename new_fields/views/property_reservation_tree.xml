@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="property_reservation_tree" model="ir.ui.view">
+            <field name="name">Property Reservation Tree</field>
+            <field name="model">new_fields.property.reservation</field>
+            <field name="arch" type="xml">
+                <tree>
+                     <field name="referance" />
+                    <field name="sales_person"/>
+                    <field name="customer"/>
+                    <field name="date_of_res"/>
+                    <field name="payment_date"/>
+                    <field name="analytic_account"/>
+                    <field name="income_account"/>
+                    <field name="property_price"/>
+                    <field name="res_amount"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

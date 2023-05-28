@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <data>
+    <!-- Inherit Form view -->
+    <record id="edit_res_partner" model="ir.ui.view">
+      <field name="name">Edit Res Partner Form</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <field name="vat" position="after">
+          <field name="nationality"/>
+          <field name="frtecn"/>
+          <field name="fcn"/>
+        </field>
+        <field name="category_id" position="after">
+          <field name="id_number"/>
+          <field name="fcob"/>
+          <field name="dob"/>
+        </field>
+      </field>
+    </record>
+  </data>
+</odoo>

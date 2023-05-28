@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="property_management_search" model="ir.ui.view">
+            <field name="name">Property Management Search</field>
+            <field name="model">new_fields.main.property</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="project"/>
+                    <field name="total_cost"/>
+                    <field name="date"/>
+                    <field name="launch_date"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

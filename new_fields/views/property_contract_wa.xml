@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="action_property_contract" model="ir.actions.act_window">
+      <field name="name">Property Contract</field>
+      <field name="res_model">new_fields.contract.property</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+  </data>
+</odoo>

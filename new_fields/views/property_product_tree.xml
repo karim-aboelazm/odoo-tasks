@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="property_product_tree" model="ir.ui.view">
+            <field name="name">Property Product Tree</field>
+            <field name="model">new_fields.property.product</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="property_name"/>
+                    <field name="property_code"/>
+                    <field name="property_type"/>
+                    <field name="property_price"/>
+                    <field name="property_age"/>
+                    <field name="constraction_status"/>  
+                    <field name="building"/>
+                    <field name="project"/>
+                    <field name="cost"/>
+                    <field name="property_form"/>
+                    <field name="property_number"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

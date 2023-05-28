@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="property_reservation_form" model="ir.ui.view">
+            <field name="name">Property Reservation Form</field>
+            <field name="model">new_fields.property.reservation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="confirm_reservation" string="Confirm" type="object"/>
+                        <button name="cancel_reservation" string="Cancel" type="object"/>
+                        <field name="status" widget="statusbar"/>
+                    </header>
+                    <sheet string="new_fields.main.property">
+                        <h1><field name="referance" readonly="1"/></h1>
+                        <group name="group_top">
+                            <group name="group_left" string="Reservation Details">
+                                <field name="sales_person" string="Sales Person"/>
+                                <field name="customer" string="Customer" widget="many2many_tags"/>
+                                <field name="date_of_res"/>
+                                <field name="payment_date"/>
+                                <field name="analytic_account"/>
+                                <field name="income_account"/>
+                                <field name="property_price"/>
+                                <field name="res_amount"/>
+                                <field name="taxes"/>
+                                <field name="entry"/>
+                            </group>
+
+                            <group name="group_right" string="More Information">
+                                <field name="property_no"/>
+                                <field name="property_code"/>
+                                <field name="property_floor"/>
+                                <field name="address"/>
+                                <field name="property_type"/>
+                                <field name="property_status"/>
+                                <field name="property_area"/>
+                                <field name="frtecn" modifiers="{&quot;readonly&quot;: true}"/>
+                                <field name="reservation_end_date" modifiers="{&quot;required&quot;: true}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Define the sequence -->
+        <record id="sequence_property_reservation" model="ir.sequence">
+            <field name="name">Property Reservation Sequence</field>
+            <field name="code">new_fields.property.reservation</field>
+            <field name="prefix">RES/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

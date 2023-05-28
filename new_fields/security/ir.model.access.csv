@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_1,name_1,model_new_fields_main_property,base.group_user,1,1,1,1
+access_2,name_2,model_new_fields_property_product,base.group_user,1,1,1,1
+access_3,name_3,model_new_fields_property_reservation,base.group_user,1,1,1,1
+access_4,name_4,model_new_fields_contract_property,base.group_user,1,1,1,1

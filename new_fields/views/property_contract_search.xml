@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="property_contract_search" model="ir.ui.view">
+            <field name="name">Property contract Search</field>
+            <field name="model">new_fields.contract.property</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="customer"/>
+                    <field name="date_of_contract"/>
+                    <field name="first_payment"/>
+                    <field name="analytic_account"/>
+                    <field name="income_account"/>
+                    <field name="reservation"/>
+                    <field name="partial_payment"/>
+                    <field name="note"/>
+                    <field name="taxes"/>
+                    <field name="contract_number"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

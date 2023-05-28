@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="property_product_form" model="ir.ui.view">
+            <field name="name">Property Product Form</field>
+            <field name="model">new_fields.property.product</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet string="new_fields.main.property">
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="property_name"/>
+                                <field name="property_code"/>
+                            </group>
+                            <group name="group_right">
+                                 <field name="property_image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;avatar_128&quot;}" on_change="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Property Information">
+                                <group name="group_top">
+                                    <group name="group_left" string="Basic Information">
+                                        <field name="property_type"/>
+                                        <field name="property_price"/>
+                                        <field name="sales_person" colspan="4" widget="many2many_tags" can_create="true" can_write="true"/>
+                                        <field name="property_age"/>
+                                        <field name="constraction_status"/>  
+                                        <field name="building"/>
+                                        <field name="project"/>
+                                        <field name="cost"/>
+                                        <field name="property_form"/>
+                                        <field name="property_number"/>
+                                        <field name="land_area"/>
+                                        <field name="building_flats"/>
+                                        <field name="ground_floor_area"/>
+                                    </group>
+
+                                    <group name="group_right" string="More Information">
+                                        <field name="type_of_property"/>
+                                        <field name="property_floor"/>
+                                        <field name="property_area"/>
+                                        <field name="net_property_area"/>
+                                        <field name="rooms"/>
+                                        <field name="bath_rooms"/>
+                                        <field name="first_floor_space"/>
+                                        <field name="second_floor_space"/>
+                                        <field name="basement_space"/>
+                                        <field name="piece_number"/>
+                                        <field name="approved_scheme_number"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Waranties And Licenses">
+                                <group>
+                                    <field name="waranty"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

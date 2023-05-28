@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="property_management_form" model="ir.ui.view">
+            <field name="name">Property Management Form</field>
+            <field name="model">new_fields.main.property</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet string="new_fields.main.property">
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="project"/>
+                            <field name="total_cost"/>
+                            <field name="date"/>
+                            <field name="launch_date"/>
+                        </group>
+                       <notebook>
+                         <page string="Property Information">
+                            <group name="group_top">
+                                <group name="group_left" string="Basic Information">
+                                    <field name="property_status"/>
+                                    <field name="property_type"/>
+                                    <field name="property_price"/>
+                                    <field name="lan_area"/>
+                                    <field name="constraction_date"/>
+                                </group>
+
+                                <group name="group_right" string="More Information">
+                                    <field name="price"/>
+                                    <field name="floors"/>
+                                    <field name="unit_per_floors"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Waranties And Licenses">
+                            <group>
+                                <field name="waranty"/>
+                            </group>
+                        </page>
+                       </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

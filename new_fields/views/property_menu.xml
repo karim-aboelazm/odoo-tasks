@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <menuitem id="menu_property_management" name="Main Property" action="action_property_management" sequence="0"/>
+    <menuitem id="menu_property_product" name="Product Property" parent="menu_property_management" action="action_property_product" sequence="1"/>
+    <menuitem id="menu_property_reservation" name="Reservation Property" parent="menu_property_management" action="action_property_reservation" sequence="2"/>
+    <menuitem id="menu_property_contract" name="Contract Property" parent="menu_property_management" action="action_property_contract" sequence="3"/>
+  </data>
+</odoo>
