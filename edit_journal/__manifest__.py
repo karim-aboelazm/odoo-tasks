@@ -11,7 +11,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','account'],
+    'depends': ['base','account','mail'],
 
     # always loaded
     'data': [
@@ -19,7 +19,8 @@
         'views/journal.xml',
         'views/payment.xml',
         'views/transient.xml',
-        # 'views/settings_view.xml',
+        'views/settings_view.xml',
+        'views/schedual_action.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
