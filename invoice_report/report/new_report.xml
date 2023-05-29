@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <template id="invoice_template_edited" inherit_id="account.report_invoice_document">
+            <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[6]" position="before">
+                <th name="state" t-attf-class="text-left"><span>State</span></th>
+            </xpath>
+            <xpath expr="//tbody[@class='invoice_tbody']/t[3]/tr/t/td[5]" position="after">
+                 <td class="text-right">
+                    <span t-field="o.state"/>
+                </td>
+            </xpath>
+            
+        </template>
+    </data>
+</odoo>
